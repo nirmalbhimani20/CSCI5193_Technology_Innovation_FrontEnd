@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/services/login/login.service';
 import { RegisterService } from 'src/services/register/register.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class RegisterComponent implements OnInit {
   lEmail: string | undefined ;
   lPassword: string  | undefined;
 
-  constructor(private toster : ToastrService , private registerService : RegisterService) { }
+  constructor(private router : Router, private toster : ToastrService , private registerService : RegisterService, private loginService : LoginService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +32,23 @@ export class RegisterComponent implements OnInit {
       this.toster.error("Please insert Password", "Error");
     }
     else {
+      var JSON = {
+        email : this.lEmail,
+        password : this.lPassword
+      }
+
+    this.loginService.login(JSON).subscribe((res) => {
+      console.log(res);
+      if(res.status == "True" || res.status =="true"){
+        console.log("login");
+        this.router.navigate(['/dashboard']);
+
+      }
+      else {
+        this.toster.error("Try Again After Some Time" , "Error");
+      }
+    })
+
 
     }
 
@@ -48,14 +67,22 @@ export class RegisterComponent implements OnInit {
     }
     else {
 
-       var JSON = {
+       var JSON1 = {
          fullName : this.rFullName,
          email : this.rEmail,
          password : this.rPassword
        }
 
-       this.registerService.register(JSON).subscribe((res) => {
-         console.log(" resonce got");
+       this.registerService.register(JSON1).subscribe((res) => {
+         console.log(" resonce got"+   JSON.stringify(res));
+        if(res.status == "True" || res.status == "true"){
+          console.log("hii");
+          this.toster.success("Sign Up successfully", "Sucess");
+        }
+        else {
+          this.toster.error("Try Again After Some Time" , "Error");
+        }
+
        })
        
        
