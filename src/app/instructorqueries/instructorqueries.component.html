@@ -1,0 +1,72 @@
+<div class="container hero">
+    <div class="row">
+        <div id="portfolio" class="our-portfolio section">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5">
+                  <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+                   
+                    <h4>See User Queries from last   <em>Login </em> </h4>
+                    <div class="line-dec"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <section class="details-card   " style="margin-bottom: 50px;" >
+            <div class="container">
+                <div class="row" *ngFor= "let query of queriesData" style="margin-bottom: 50px; margin-top: 50px;">
+                    <div class="col-md-12" >
+                        <div class="card-content">
+                        
+                            <div class="card-desc">
+                                <h3 class="changeColor"> User Name : {{query.name}}</h3>
+                                <h6 class="changeColor"> Email : {{query.email}}</h6>
+                                <h6 class="changeColor"> Subject : {{query.subject}}</h6>
+                                <p>Message : {{query.message}}</p>
+                                <div class=" row" *ngIf= "query.resolved == 'not'">
+                                  <div  class="col-lg-5" style="width: 50% !important;">
+                                    <div class="border-first-button scroll-to-section"  >
+                                      <a > Needs To be Resolved</a>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-5" style="width: 50% !important;">
+                                    <div class="border-first-button scroll-to-section">
+                                      <a href="#contact">Mark as Resolved</a>
+                                    </div>
+                                  </div>
+                                  
+                                </div> 
+                                <div class=" row" *ngIf= "query.resolved == 'resolved'">
+                                  <div  class="col-lg-5" style="width: 50% !important;">
+                                    <div class="border-first-button scroll-to-section"  >
+                                      <a >  Resolved</a>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-5" style="width: 50% !important;">
+                                    <div class="border-first-button scroll-to-section">
+                                      <a href="#contact">Add User</a>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+
+                                   
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+
+                </div>
+            </div>
+        </section>
+
+      
+
+        
+  </div>
+  </div>

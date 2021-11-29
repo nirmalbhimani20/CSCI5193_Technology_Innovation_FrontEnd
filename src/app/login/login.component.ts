@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { LoginService } from 'src/services/login/login.service';
 import { RegisterService } from 'src/services/register/register.service';
 import { Router } from '@angular/router';
+import { EmitvalueService } from 'src/services/emit/emitvalue.service';
+import { NotificationService } from 'src/services/notification/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +16,13 @@ export class LoginComponent implements OnInit {
   rFullName: string | undefined ;
   rEmail: string | undefined;
   rPassword: string | undefined;
+  rcPassword: string | undefined;
+  rRole: any = "";
 
   lEmail: string | undefined ;
   lPassword: string  | undefined;
 
-  constructor(private router : Router, private toster : ToastrService , private registerService : RegisterService, private loginService : LoginService) { }
+  constructor(private router : Router,private notificationService : NotificationService, private toster : ToastrService , private notification : NotificationService, private registerService : RegisterService, private loginService : LoginService,  private emitValue : EmitvalueService) { }
 
   ngOnInit(): void {
   }
@@ -31,21 +35,29 @@ export class LoginComponent implements OnInit {
       this.toster.error("Please insert Password", "Error");
     }
     else {
-      var JSON1 = {
+      var JSON = {
         email : this.lEmail,
         password : this.lPassword
       }
 
-    this.loginService.login(JSON1).subscribe((res) => {
+    this.loginService.login(JSON).subscribe((res) => {
       console.log(res);
       if(res.status == "True" || res.status =="true"){
-        console.log("login");
-        this.router.navigate(['/dashboard']);
+        console.log("login" );
+
+        this.emitValue.roleEmit(res.result.role);
+        this.emitValue.userLogin("true");
+        this.router.navigate(['/home']);
+        this.notification.showSuccess("Login Successfully" , "Success");
+        
+        console.log("-- role"+res.result.role);
+        localStorage.setItem("id",res.result.id );
+        localStorage.setItem("role",res.result.role);
+        localStorage.setItem("userLogin", "true");
       }
       else {
-        this.toster.error("Try Again After Some Time" , "Error");
+        this.notificationService.showError("Invalid Credentials", "Error");
       }
-      
     })
 
 
@@ -54,7 +66,8 @@ export class LoginComponent implements OnInit {
   }
 
   register(){
-
+    console.log("in register method")
+    console.log("--- "+this.rRole);
     if(this.rFullName == null || this.rFullName == "" || this.rFullName == undefined){
       this.toster.error("Please insert Full Name", "Error");
     }
@@ -64,22 +77,34 @@ export class LoginComponent implements OnInit {
     else if(this.rEmail == null || this.rEmail == "" || this.rEmail == undefined){
       this.toster.error("Please insert Email", "Error");
     }
+    else if (this.rPassword != this.rcPassword){
+      this.toster.error("Password is not same", "Error");
+    }
+    else if (this.rRole != 'user' && this.rRole != "instructor"){
+      this.toster.error("Please Select Your role", "Error");
+    }
     else {
 
-       var JSON1 = {
+       var JSONdata = {
          fullName : this.rFullName,
          email : this.rEmail,
-         password : this.rPassword
+         password : this.rPassword,
+         role: this.rRole
        }
-
-       this.registerService.register(JSON1).subscribe((res) => {
-         console.log(" resonce got");
-        if(res.status == "True" || res.status =="true"){
-          console.log("login");
+       console.log("_-__")
+       this.registerService.register(JSONdata).subscribe((res) => {
+         console.log(" resonce got"+   JSON.stringify(res));
+        if(res.status == "True" || res.status == "true"){
+          console.log("hii");
           this.toster.success("Sign Up successfully", "Sucess");
         }
         else {
-          this.toster.error("Try Again After Some Time" , "Error");
+          if(res.number == "105"){
+            this.notificationService.showError("Email Address is already Present", "Error");
+          }
+          else {
+            this.notificationService.showError("Try Again After Some time", "Error");
+          }
         }
 
        })
@@ -88,5 +113,14 @@ export class LoginComponent implements OnInit {
 
     }
   }
+
+  cancelAction(){
+    this.rRole = "";
+    this.rEmail = "";
+    this.rPassword = "";
+    this.rFullName = "";
+    this.rcPassword = "";
+  }
+ 
 
 }

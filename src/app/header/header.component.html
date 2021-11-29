@@ -1,17 +1,30 @@
 <div class="header-dark">
     <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="background-color: blue !important;"> 
-        <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="#">Happify</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Link</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                    <li class="nav-item" *ngIf = "isVisibleBeforeLoginToUser" role="presentation"><a class="nav-link pointer" (click)="redirect('home')" >Home</a></li>
+                    <li class="nav-item"  *ngIf = "isVisibleBeforeLoginToUser" role="presentation"><a class="nav-link pointer" (click)="redirect('aboutus')">About Us</a></li>
+                    <li class="nav-item" *ngIf = "isVisibleBeforeLoginToUser" role="presentation"><a class="nav-link pointer" (click)="redirect('contact')">Contact Instructor</a></li>
+                    <li class="nav-item" *ngIf = "isVisibleBeforeLoginToUser"  role="presentation"><a class="nav-link pointer" (click)="redirect('blog')">Blog </a></li>
+                    
+                    <li class="nav-item" *ngIf = "isTaskVisibleToUser"  role="presentation"><a class="nav-link pointer" (click)="redirect('task')">Task </a></li>
+                    <!-- <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
                         <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </li>
+                    </li> -->
+                    <li class="nav-item" *ngIf = "isInstructorSectionVisibleToInstructor"  role="presentation"><a class="nav-link pointer" (click)="redirect('instructorBlog')">Blog Section </a></li>
+                    <li class="nav-item" *ngIf = "isInstructorSectionVisibleToInstructor"  role="presentation"><a class="nav-link pointer" (click)="redirect('userSection')">User Section </a></li>
+                    <li class="nav-item" *ngIf = "isInstructorSectionVisibleToInstructor"  role="presentation"><a class="nav-link pointer" (click)="redirect('userQueries')">User Queries </a></li>
+                   
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
-                    <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
-                </form><span class="navbar-text"><a (click)="redirect('login')" onmouseover="" style="cursor: pointer;" class="login">Log In</a></span><a class="btn btn-light action-button" role="button" (click)="redirect('register')">Sign Up</a></div>
+                    <!-- <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div> -->
+                </form>
+                <span class="navbar-text" *ngIf = "isLoginVisible"><a (click)="redirect('login')" onmouseover="" style="cursor: pointer;" class="login">Log In</a></span><a class="btn btn-light action-button" role="button" (click)="redirect('register')" *ngIf = "isLoginVisible">Sign Up</a>
+                <span class="navbar-text" *ngIf = "isLogoutVisible"><a (click)="redirect('login')" onmouseover="" style="cursor: pointer;" class="login">Profile</a></span><a class="btn btn-light action-button" role="button" (click)="logout()" *ngIf = "isLogoutVisible">Logout</a>
+          
+            </div>
         </div>
     </nav>
     
