@@ -16,13 +16,20 @@
         <input class="form-group_input" type="text" placeholder="Full Name" [(ngModel)] = "rFullName" #rFullNameInput="ngModel"  [ngModelOptions]="{standalone: true}"/>
         <input class="form-group_input" type="email" placeholder="Email" [(ngModel)] = "rEmail" #rEmailInput="ngModel" [ngModelOptions]="{standalone: true}"/>
         <input class="form-group_input" type="password" placeholder="Password" [(ngModel)] = "rPassword" #rPasswordInput="ngModel" [ngModelOptions]="{standalone: true}"/>
-        <button class="button button--form" (click)="register()">Sign up</button>
+        <input class="form-group_input" type="cpassword" placeholder="Confirm Password" [(ngModel)] = "rcPassword" #rcPasswordInput="ngModel" [ngModelOptions]="{standalone: true}"/>
+        <select name="rRole"    [(ngModel)] = "rRole"  style="width:100%; min-height: 46px; border-radius:  23px; border:1px solid #eee" >
+          <option value="">--Select Role--</option>
+          <option value="user">User</option>
+          <option value="instructor">Instuctor</option>
+         
+      </select>
+        <button class="button button--form" style="margin-top: 30px;" (click)="register()">Sign up</button>
       </div>
     </div>
 
   <fieldset class="fieldset">
     <h2>Don't have an account ?</h2>
-    <p>Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap.</p>
+    <p>You are one step away from your fitness. Create account right now</p>
     <div class="form_content form_content--noaccount">
       
     </div>
@@ -30,7 +37,7 @@
   </fieldset>
   <fieldset class="fieldset">
     <h2>Have an account ?</h2>
-    <p>Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap.</p>
+    <p>Do your best everyday. Your fitness is in your hand.</p>
     
     <div class="form_content form_content--noaccount">
       
