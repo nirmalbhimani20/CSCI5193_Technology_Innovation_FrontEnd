@@ -12,7 +12,9 @@ export class RegisterService {
 
   register(JSONdata : any) {
     console.log("in register method service file");
-    return this.httpClient.post<any>("http://localhost:3000/v1/user/register" , JSONdata);
+
+    return this.httpClient.post<any>("https://csci5193-nodejs.herokuapp.com/v1/user/register" , JSONdata);
+
   }
 
 }

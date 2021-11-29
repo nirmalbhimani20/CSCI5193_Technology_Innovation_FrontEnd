@@ -10,6 +10,6 @@ export class LoginService {
 
   login(JSON : any) {
     console.log("in login method");
-    return this.httpClient.post<any>("http://localhost:3000/v1/user/login" , JSON);
+    return this.httpClient.post<any>("https://csci5193-nodejs.herokuapp.com/v1/user/login" , JSON);
   }
 }
