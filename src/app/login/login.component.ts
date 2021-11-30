@@ -47,7 +47,14 @@ export class LoginComponent implements OnInit {
 
         this.emitValue.roleEmit(res.result.role);
         this.emitValue.userLogin("true");
-        this.router.navigate(['/home']);
+
+        if (res.result.role == "user"){
+          this.router.navigate(['/home']);
+        }
+        else {
+          this.router.navigate(['/instructorBlog']);
+        }
+      
         this.notification.showSuccess("Login Successfully" , "Success");
         
         console.log("-- role"+res.result.role);
