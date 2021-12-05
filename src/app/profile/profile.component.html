@@ -1,0 +1,90 @@
+<div class="container hero">
+    <div class="row">
+        <div id="about" class="about section">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row">
+                    <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                      <div class="about-right-content">
+                        <div class="section-heading">
+                          <h4>Your <em>Profile</em></h4>
+                          <div class="line-dec"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+
+          <div class="contact-us section">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                </div>
+                <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+                  <form class="my-3" id="contact" action="" method="post">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="fill-form">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <fieldset>
+                                  <label class="mb-1 ml-3 float-left" for="name">Name:</label>
+                                  <input class="mb-3 form-control border-2" type="name" name="name" id="name" placeholder="Name"
+                                         autocomplete="on" required [(ngModel)]="profile.name">
+                              </fieldset>
+                              <fieldset>
+                                <label class="mb-1 ml-3 float-left" for="email">Email:</label>
+                                <input class="mb-3 form-control border-2" type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email"
+                                [(ngModel)]="profile.email">
+                              </fieldset>
+                              <fieldset>
+                                <label class="mb-1 ml-3 float-left" for="role">Role:</label>
+                                <input class="mb-3 form-control border-2" type="subject" name="role" id="role" placeholder="Role" autocomplete="on"
+                                [(ngModel)]="profile.role" disabled>
+                              </fieldset>
+                              <fieldset>
+                                <label class="mb-1 ml-3 float-left" for="email">About you:</label>
+                                <textarea class="form-control border-2" name="about-me" type="text" id="about-me" placeholder="I love fitness..." [(ngModel)]="profile.about"></textarea>
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <button type="submit" id="form-submit" class="main-button" (click)="update()">Update</button>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="card m-5">
+                          <div class="card-header">
+                            Manage your plan
+                          </div>
+                          <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                              <div class="row">
+                              <div class="col-lg-4">
+                                <img src="assets/images/credit_card.png" class="w-50">
+                              </div>
+                              <div class="col-lg-8">
+                                <p *ngIf="profile.role == 'user'">Your current plan: <b>Fitness Lover</b></p>
+                                <p *ngIf="profile.role == 'instructor'">Your current plan: <b>Instructor</b></p>
+                                <p *ngIf="profile.role == 'instructor'">Your active clients: <b>24</b></p>
+                              </div>
+                              </div>
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

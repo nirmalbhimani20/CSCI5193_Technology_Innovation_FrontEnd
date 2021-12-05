@@ -22,7 +22,7 @@
                     <!-- <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div> -->
                 </form>
                 <span class="navbar-text" *ngIf = "isLoginVisible"><a (click)="redirect('login')" onmouseover="" style="cursor: pointer;" class="login">Log In</a></span><a class="btn btn-light action-button" role="button" (click)="redirect('register')" *ngIf = "isLoginVisible">Sign Up</a>
-                <span class="navbar-text" *ngIf = "isLogoutVisible"><a (click)="redirect('login')" onmouseover="" style="cursor: pointer;" class="login">Profile</a></span><a class="btn btn-light action-button" role="button" (click)="logout()" *ngIf = "isLogoutVisible">Logout</a>
+                <span class="navbar-text" *ngIf = "isLogoutVisible"><a (click)="redirect('profile')" onmouseover="" style="cursor: pointer;" class="login">Profile</a></span><a class="btn btn-light action-button" role="button" (click)="logout()" *ngIf = "isLogoutVisible">Logout</a>
           
             </div>
         </div>
