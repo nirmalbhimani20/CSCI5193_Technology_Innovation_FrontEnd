@@ -23,7 +23,7 @@
                         
                             <div class="card-desc">
                                 <h3 class="changeColor"> User Name : {{query.name}}</h3>
-                                <h6 class="changeColor"> Email : {{query.email}}</h6>
+                             
                                 <h6 class="changeColor"> Subject : {{query.subject}}</h6>
                                 <p>Message : {{query.message}}</p>
                                 <div class=" row" *ngIf= "query.resolved == 'not'">
@@ -34,7 +34,7 @@
                                   </div>
                                   <div class="col-lg-5" style="width: 50% !important;">
                                     <div class="border-first-button scroll-to-section">
-                                      <a href="#contact">Mark as Resolved</a>
+                                      <a >Mark as Resolved</a>
                                     </div>
                                   </div>
                                   
@@ -47,7 +47,6 @@
                                   </div>
                                   <div class="col-lg-5" style="width: 50% !important;">
                                     <div class="border-first-button scroll-to-section">
-                                      <a href="#contact">Add User</a>
                                     </div>
                                   </div>
                                   

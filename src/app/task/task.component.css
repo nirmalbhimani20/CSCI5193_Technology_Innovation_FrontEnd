@@ -1,3 +1,8 @@
+
+.pointer:hover {
+  cursor: pointer;
+}
+
 .main-container {
     padding: 30px;
   }

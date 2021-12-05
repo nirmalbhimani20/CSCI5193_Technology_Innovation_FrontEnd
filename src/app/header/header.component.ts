@@ -80,6 +80,9 @@ export class HeaderComponent implements OnInit {
     else if (url == 'task'){
       this.router.navigate(['/task']);
     }
+    else if (url == 'profile'){
+      this.router.navigate(['/profile']);
+    }
 
     
     

@@ -20,6 +20,11 @@ import { InstructorqueriesComponent } from './instructorqueries/instructorquerie
 import { UsersectionComponent } from './usersection/usersection.component';
 import { InstructorblogComponent } from './instructorblog/instructorblog.component';
 import { TaskComponent } from './task/task.component';
+import { TasklistComponent } from './tasklist/tasklist.component';
+import { PrevioustaskComponent } from './previoustask/previoustask.component';
+import { FuturetaskComponent } from './futuretask/futuretask.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,11 @@ import { TaskComponent } from './task/task.component';
     InstructorqueriesComponent,
     UsersectionComponent,
     InstructorblogComponent,
-    TaskComponent
+    TaskComponent,
+    TasklistComponent,
+    PrevioustaskComponent,
+    FuturetaskComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
