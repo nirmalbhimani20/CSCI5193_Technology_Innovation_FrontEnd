@@ -11,13 +11,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TaskComponent } from './task/task.component';
 import { UsersectionComponent } from './usersection/usersection.component';
-import {ProfileComponent} from "./profile/profile.component";
+import { ProfileComponent } from "./profile/profile.component";
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { PrevioustaskComponent } from './previoustask/previoustask.component';
 import { FuturetaskComponent } from './futuretask/futuretask.component';
 
 const routes: Routes = [
-  
+
   {
     path: 'register',
     component: RegisterComponent
@@ -35,46 +35,54 @@ const routes: Routes = [
     component: AboutusComponent
   },
   {
-    path:'home',
+    path: 'home',
     component: HomeComponent
   },
   {
-    path:'contact',
+    path: 'contact',
     component: ContactInstructorComponent
   },
   {
-    path:'blog',
+    path: 'blog',
     component: BlogComponent
   },
   {
-    path:'userQueries',
+    path: 'userQueries',
     component: InstructorqueriesComponent
   },
   {
-    path:'userSection',
+    path: 'userSection',
     component: UsersectionComponent
   },
   {
-    path:'instructorBlog',
+    path: 'instructorBlog',
     component: InstructorblogComponent
   },
   {
-    path:'task',
+    path: 'task',
     component: TaskComponent
   },
 
-{    path:'tasklist',    component: TasklistComponent }, 
- {    path:'previoustask',    component: PrevioustaskComponent  }, 
-  {    path:'futuretask',    component: FuturetaskComponent  },
+  { path: 'tasklist',
+   component: TasklistComponent 
+  },
+
+  { path: 'previoustask',
+   component: PrevioustaskComponent
+   },
+
+  { path: 'futuretask',
+    component: FuturetaskComponent
+   },
 
 
 
   {
-    path:'profile',
+    path: 'profile',
     component: ProfileComponent
   },
   {
-    path:'',
+    path: '',
     component: HomeComponent
   }
 ];
