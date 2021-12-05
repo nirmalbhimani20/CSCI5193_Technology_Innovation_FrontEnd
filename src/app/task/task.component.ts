@@ -32,4 +32,17 @@ export class TaskComponent implements OnInit {
 
   }
 
+  redirectTO(url :any){
+    if(url == 'tasklist'){
+      this.router.navigate(['/tasklist']);
+    }
+    else if(url == 'previoustask'){
+      this.router.navigate(['/previoustask']);
+    }
+    else if(url == 'futuretask'){
+      this.router.navigate(['/futuretask']);
+    }
+    
+  }
+
 }

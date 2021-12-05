@@ -48,8 +48,11 @@ export class LoginComponent implements OnInit {
         this.emitValue.roleEmit(res.result.role);
         this.emitValue.userLogin("true");
 
+        console.log("---"+res.result.role);
         if (res.result.role == "user"){
-          this.router.navigate(['/home']);
+          console.log("---- in user role");
+          this.router.navigate(['/task']);
+
         }
         else {
           this.router.navigate(['/instructorBlog']);

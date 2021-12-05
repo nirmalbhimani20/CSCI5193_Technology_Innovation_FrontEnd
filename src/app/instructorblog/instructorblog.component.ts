@@ -1,4 +1,4 @@
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogService } from 'src/services/blog/blog.service';
@@ -123,7 +123,7 @@ export class InstructorblogComponent implements OnInit {
         id : this.blogid
       }
 
-      this.blogService.updateBlog(Jsondata1).subscribe((data) => {
+      this.blogService.updateBlog(this.blogid, Jsondata1).subscribe((data) => {
         if(data.status == "True" || data.status =="true"){
           this.notificationService.showSuccess("Blog Updated Successfully", "Success");
           this.blogsDetail.splice(this.selectedIndex , 1 , data.data[0]);
@@ -139,10 +139,8 @@ export class InstructorblogComponent implements OnInit {
   }
 
   deleteBlog (){
-    var JsonData1  = {
-      id : this.blogid
-    }
-    this.blogService.deleteBlog(JsonData1).subscribe((res) => {
+    
+    this.blogService.deleteBlog(this.blogid).subscribe((res) => {
       if (res.status == "True" || res.status == "true") {
         this.blogsDetail.splice(this.selectedIndex, 1);
         this.cancelAction();

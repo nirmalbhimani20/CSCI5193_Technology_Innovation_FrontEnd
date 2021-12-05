@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EmitvalueService } from 'src/services/emit/emitvalue.service';
 import { InstructorService } from 'src/services/instructor/instructor.service';
 import { NotificationService } from 'src/services/notification/notification.service';
 
@@ -17,15 +19,34 @@ export class ContactInstructorComponent implements OnInit {
   uIName : any;
 
 
-  constructor(private instructorListservice : InstructorService, private notificationService : NotificationService) { }
+  constructor(private instructorListservice : InstructorService, private notificationService : NotificationService, private router : Router, private emitValue : EmitvalueService) { }
 
   ngOnInit(): void {
-    this.instructorListservice.instructorList().subscribe((data) => {
-      console.log("data" +JSON.stringify(data));
+    var role=  localStorage.getItem("role");
+    var userlogin =  localStorage.getItem("userLogin");
+    var id  = localStorage.getItem("id");
 
-      this.instructorList = data.result;
-      console.log("---"+this.instructorList);
-    })
+   
+    if(role == 'user' || role == 'instructor'){
+   
+        this.router.navigate(['/contact']);
+        this.emitValue.roleEmit(role);
+        this.emitValue.userLogin("true");
+
+        var JSONdata = {
+          id : localStorage.getItem("id")
+        }
+
+       this.instructorListservice.instructorList(JSONdata).subscribe((res) => {
+          if(res.status == "true" || res.status == "True"){
+            this.instructorList = res.result;
+          }
+       })
+    }
+    else {
+      this.router.navigate(['/home']);
+      localStorage.clear();
+    }
   }
 
   sendMessage(){
@@ -33,9 +54,6 @@ export class ContactInstructorComponent implements OnInit {
     
     if(this.uName == null || this.uName == "" || this.uName == undefined){
       this.notificationService.showError("Please insert Name", "Error");
-    }
-    else if(this.uEmail == null || this.uEmail == "" || this.uEmail == undefined){
-      this.notificationService.showError("Please insert Email", "Error");
     }
     else if(this.uIName == null || this.uIName == "" || this.uIName == undefined){
       this.notificationService.showError("Please Select Instructor", "Error");
@@ -47,20 +65,12 @@ export class ContactInstructorComponent implements OnInit {
       this.notificationService.showError("Please insert Message", "Error");
     }
     else {
-      var JsonData = {
-        email : this.uEmail
-      }
-      this.instructorListservice.checkUserIsPresent(JsonData).subscribe(data => {
-        console.log("==data"+JSON.stringify(data))
-        if(data.result > 0){
-          console.log(" user is present");
           var JsonData1 = {
-            email : this.uEmail,
             instructor : this.uIName,
             name : this.uName,
             subject : this.uSubject,
             message : this.uMessage,
-            id : data.id
+            id : localStorage.getItem("id")
 
           }
           this.instructorListservice.addQuery(JsonData1).subscribe(data => {
@@ -69,18 +79,14 @@ export class ContactInstructorComponent implements OnInit {
               this.notificationService.showSuccess("Instructor will contact you soon", "Success");
             }
             else {
-              // console.log(" Try again after some time");
+            
               this.notificationService.showError("Try Again after some time", "error");
             }
           })
         }
-        else {
-
-          this.notificationService.showError("Please register your email address first", "error");
-          console.log(" user is not present");
-        }
-      })
-    }
+        
+      
+    
 
   }
 

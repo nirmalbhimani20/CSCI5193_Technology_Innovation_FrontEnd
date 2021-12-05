@@ -4,17 +4,19 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactInstructorComponent } from './contact-instructor/contact-instructor.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FuturetaskComponent } from './futuretask/futuretask.component';
 import { HomeComponent } from './home/home.component';
 import { InstructorblogComponent } from './instructorblog/instructorblog.component';
 import { InstructorqueriesComponent } from './instructorqueries/instructorqueries.component';
 import { LoginComponent } from './login/login.component';
+import { PrevioustaskComponent } from './previoustask/previoustask.component';
 import { RegisterComponent } from './register/register.component';
 import { TaskComponent } from './task/task.component';
+import { TasklistComponent } from './tasklist/tasklist.component';
 import { UsersectionComponent } from './usersection/usersection.component';
 import { ProfileComponent } from "./profile/profile.component";
-import { TasklistComponent } from './tasklist/tasklist.component';
-import { PrevioustaskComponent } from './previoustask/previoustask.component';
-import { FuturetaskComponent } from './futuretask/futuretask.component';
+
+
 
 const routes: Routes = [
 
@@ -74,9 +76,6 @@ const routes: Routes = [
   { path: 'futuretask',
     component: FuturetaskComponent
    },
-
-
-
   {
     path: 'profile',
     component: ProfileComponent
