@@ -9,8 +9,8 @@ export class HttpService {
 
   constructor(private httpClient : HttpClient) { }
 
-   Url : string  = "http://localhost:3000/v1/";
-  //  liveUrl : string = "https://csci5193-nodejs.herokuapp.com/v1/";
+   //Url : string  = "http://localhost:3000/v1/";
+   Url : string = "https://csci5193-nodejs.herokuapp.com/v1/";
 
    postMethod( URL : string,JSON : string){
    
