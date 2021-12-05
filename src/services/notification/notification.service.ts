@@ -6,8 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NotificationService {
 
-  
-
   constructor(private toastr: ToastrService) { }
 
   showSuccess(message:any, title: any) {

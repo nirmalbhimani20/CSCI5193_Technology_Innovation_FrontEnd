@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpService } from '../http/http.service';
 
 
 @Injectable({
@@ -7,19 +7,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class InstructorService {
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpService : HttpService) { }
 
-  instructorList() {
-    console.log("in instructor list method");
-    return this.httpClient.get<any>("https://csci5193-nodejs.herokuapp.com/v1/user/instructorlist" );
+  instructorList(JSON : any) {
+    return this.httpService.postMethod("user/instructorlist" , JSON);
   }
   checkUserIsPresent(JSON: any){
-    return this.httpClient.post<any>("https://csci5193-nodejs.herokuapp.com/v1/user/checkUserIsPresent" , JSON);
+    return this.httpService.postMethod("user/checkUserIsPresent", JSON);
   }
   addQuery(JSON: any){
-    return this.httpClient.post<any>("https://csci5193-nodejs.herokuapp.com/v1/user/insertQueries" , JSON);
+    return this.httpService.postMethod("user/insertQueries", JSON);
   }
   fetchQueries(JSON: any){
-    return this.httpClient.post<any>("https://csci5193-nodejs.herokuapp.com/v1/user/fetchQueries" , JSON);
+    return this.httpService.postMethod("instructor/fetchQueries", JSON);
   }
 }

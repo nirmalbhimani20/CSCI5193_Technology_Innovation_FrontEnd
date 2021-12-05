@@ -4,23 +4,23 @@ import { HttpService } from '../http/http.service';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogService {
+export class UserService {
 
   constructor(private httpService : HttpService) { }
 
-  addBlog(JSON : any) {
-    console.log("in add blog method");
-    return this.httpService.postMethod("instructor/insertBlog" , JSON);
+  addUser(JSON : any) {
+    console.log("in add User method");
+    return this.httpService.postMethod("instructor/insertUser" , JSON);
   }
 
-  fetchBlog(JSON : any) {
+  fetchUser(JSON : any) {
     console.log("in add blog method");
-    return this.httpService.postMethod("instructor/fetchBlog" , JSON);
+    return this.httpService.postMethod("instructor/fetchUser" , JSON);
   }
 
-  updateBlog(id: string,JSON : any) {
+  updateUser(id: string,JSON : any) {
     console.log("in update blog method");
-    return this.httpService.putMethod("instructor/updateBlog" + "/" + id , JSON);
+    return this.httpService.putMethod("instructor/updateUser" + "/" + id , JSON);
   }
 
   deleteBlog(id: string) {
