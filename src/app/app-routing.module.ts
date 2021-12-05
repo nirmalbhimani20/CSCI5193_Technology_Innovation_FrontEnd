@@ -12,6 +12,9 @@ import { RegisterComponent } from './register/register.component';
 import { TaskComponent } from './task/task.component';
 import { UsersectionComponent } from './usersection/usersection.component';
 import {ProfileComponent} from "./profile/profile.component";
+import { TasklistComponent } from './tasklist/tasklist.component';
+import { PrevioustaskComponent } from './previoustask/previoustask.component';
+import { FuturetaskComponent } from './futuretask/futuretask.component';
 
 const routes: Routes = [
   
@@ -59,6 +62,13 @@ const routes: Routes = [
     path:'task',
     component: TaskComponent
   },
+
+{    path:'tasklist',    component: TasklistComponent }, 
+ {    path:'previoustask',    component: PrevioustaskComponent  }, 
+  {    path:'futuretask',    component: FuturetaskComponent  },
+
+
+
   {
     path:'profile',
     component: ProfileComponent
