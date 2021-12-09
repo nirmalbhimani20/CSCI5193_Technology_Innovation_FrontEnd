@@ -1,14 +1,21 @@
-# Technology Innovation CSCI5193
+# Technology Innovation CSCI5193: Happify
 
 This repository contains the front-end (Angular) prototype of the web application for the final group project of CSCI5195 - Technology Innovation - Fall 2021. Here we have developed website for instructor and user where instructor cangive advise to subscribed user. For back end we have used node js (Link for Back end: - )
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+This project was created with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
 
 
-# Group Infomration 
+# Group Infomration: Team 1
 
-In table formate
-Add all mamber in table 
+Members:
+
+|Student Name:             | Role|
+|--------------------------|--------------------|
+|Anish Devineni            |Frontedn Developer  |
+|Nirmal Parbatbhai Bhimani |Full stack Developer|
+|Rahil Dhanwani            |Frontend Developer  |
+|Tejaswi Chaudhary         |Backend Developer   |
+|Thomas Rizzuto            |Full Stack Develoepr| 
 
 ## Deployed URL:
 
