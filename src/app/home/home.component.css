@@ -22,6 +22,9 @@ section{
  border-radius: 50px;
 }
 
+.pointer:hover {
+    cursor: pointer;
+}
 
 
 .card-img {

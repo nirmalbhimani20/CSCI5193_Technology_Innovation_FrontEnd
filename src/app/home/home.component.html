@@ -62,7 +62,7 @@
                           <p>I am your trainer</p>
                               <div class="col-lg-12">
                                 <div class="border-first-button scroll-to-section">
-                                  <a href="#contact">Know More</a>
+                                  <a (click)="redirectTOInstructorDetail()" class="pointer">Know More</a>
                                 </div>
                               </div>  
                       </div>
@@ -71,7 +71,7 @@
               <div class="col-md-3">
                   <div class="card-content">
                       <div class="card-img">
-                          <img src="assets/images/ins3.png" alt="" style="max-height: 500px; !important">
+                          <img src="assets/images/ins3.png" alt="" style="max-height: 500px !important">
                           <!-- <span><h4></h4></span> -->
                       </div>
                       <div class="card-desc">
@@ -79,7 +79,7 @@
                           <p>Progres not perfection</p>
                               <div class="col-lg-12">
                                 <div class="border-first-button scroll-to-section">
-                                  <a href="#contact">Know More</a>
+                                  <a (click)="redirectTOInstructorDetail()" class="pointer">Know More</a>
                                 </div>
                               </div> 
                       </div>
@@ -88,7 +88,7 @@
               <div class="col-md-3">
                   <div class="card-content">
                       <div class="card-img">
-                          <img src="assets/images/ins2.png" alt="" style="max-height: 500px; !important">
+                          <img src="assets/images/ins2.png" alt="" style="max-height: 500px !important">
                           <!-- <span><h4>heading3</h4></span> -->
                       </div>
                       <div class="card-desc">
@@ -96,7 +96,7 @@
                           <p>Hustle For that muscle </p>
                               <div class="col-lg-12">
                                 <div class="border-first-button scroll-to-section">
-                                  <a href="#contact">Know More</a>
+                                  <a (click)="redirectTOInstructorDetail()" class="pointer">Know More</a>
                                 </div>
                               </div>  
                       </div>
@@ -106,7 +106,7 @@
               <div class="col-md-3">
                 <div class="card-content">
                     <div class="card-img">
-                        <img src="assets/images/ins4.png" alt="" style="max-height: 500px; !important">
+                        <img src="assets/images/ins4.png" alt="" style="max-height: 500px !important">
                         <!-- <span><h4>heading3</h4></span> -->
                     </div>
                     <div class="card-desc">
@@ -114,7 +114,7 @@
                         <p>Let's see how far you can go</p>
                             <div class="col-lg-12">
                               <div class="border-first-button scroll-to-section">
-                                <a href="#contact">Know More</a>
+                                <a (click)="redirectTOInstructorDetail()" class="pointer">Know More</a>
                               </div>
                             </div>  
                     </div>
@@ -318,14 +318,14 @@
               <a ><h4>Do I Need a Power Meter? The Case for Functional Threshold Power</h4></a>
               <p>Cycling rides at the forefront of quantified human performance and data-driven training guidance. This is largely due ..., </p>
               <span class="author"><img src="assets/images/author-post.jpg" alt="">By: GARMIN</span>
-              <div class="border-first-button"><a href="#">Discover More</a></div>
+              <div class="border-first-button"><a (click)="redirectToBlogDetail()" class="pointer">Discover More</a></div>
             </div>
           </div>
         </div>
         <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
           <div class="blog-posts">
             <div class="row">
-              <div class="col-lg-12">
+              <div class="col-lg-12" (click)="redirectToBlogDetail()" class="pointer">
                 <div class="post-item">
                   <div class="thumb">
                     <a ><img src="assets/images/blog-post-02.jpg" alt=""></a>
@@ -338,7 +338,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12">
+              <div class="col-lg-12" (click)="redirectToBlogDetail()" class="pointer">
                 <div class="post-item">
                   <div class="thumb">
                     <a ><img src="assets/images/blog-post-03.jpg" alt=""></a>
@@ -351,7 +351,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12">
+              <div class="col-lg-12" (click)="redirectToBlogDetail()" class="pointer">
                 <div class="post-item last-post-item">
                   <div class="thumb">
                     <a ><img src="assets/images/blog-post-04.jpg" alt=""></a>

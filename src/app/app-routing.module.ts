@@ -15,6 +15,8 @@ import { TaskComponent } from './task/task.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { UsersectionComponent } from './usersection/usersection.component';
 import { ProfileComponent } from "./profile/profile.component";
+import { BlogdetailComponent } from './blogdetail/blogdetail.component';
+import { InstructordetailComponent } from './instructordetail/instructordetail.component';
 
 
 
@@ -61,6 +63,14 @@ const routes: Routes = [
     component: InstructorblogComponent
   },
   {
+    path: 'blogDetail',
+    component: BlogdetailComponent
+  },
+  {
+    path: 'instructorDetail',
+    component: InstructordetailComponent
+  },
+  {
     path: 'task',
     component: TaskComponent
   },
@@ -87,7 +97,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {   scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

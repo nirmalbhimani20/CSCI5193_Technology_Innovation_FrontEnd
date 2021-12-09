@@ -24,6 +24,8 @@ import { TasklistComponent } from './tasklist/tasklist.component';
 import { PrevioustaskComponent } from './previoustask/previoustask.component';
 import { FuturetaskComponent } from './futuretask/futuretask.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BlogdetailComponent } from './blogdetail/blogdetail.component';
+import { InstructordetailComponent } from './instructordetail/instructordetail.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { ProfileComponent } from './profile/profile.component';
     TasklistComponent,
     PrevioustaskComponent,
     FuturetaskComponent,
-    ProfileComponent
+    ProfileComponent,
+    BlogdetailComponent,
+    InstructordetailComponent
   ],
   imports: [
     BrowserModule,
