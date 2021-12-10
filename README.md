@@ -23,12 +23,12 @@ https://csci5193-angular.herokuapp.com/
 
 # Technological Stack 
 
-Front end - Angularjs, Bootstrap
-Back end - Nodejs
-Development Tools - Visual Studio Code Editor
-Version Control System - GitHub
-Database - AWS 
-Deployment - Heroku
+Front end - Angularjs, Bootstrap<br />
+Back end - Nodejs<br />
+Development Tools - Visual Studio Code Editor<br />
+Version Control System - GitHub<br />
+Database - AWS <br />
+Deployment - Heroku<br />
 
 # Set up Application
 
